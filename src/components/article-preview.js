@@ -18,15 +18,13 @@ const ArticlePreview = ({ posts }) => {
           return (
             <li key={post.slug}>
               <Link to={`/blog/${post.slug}`} className={styles.link}>
-                <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
-                <h2 className={styles.title}>{post.title}</h2>
+                <h2 className={styles.title}>{post.field_page_title}</h2>
               </Link>
               <div>
-                {post.description?.raw && renderRichText(post.description)}
+                {post.field_meta_description && post.field_meta_description}
               </div>
               <div className={styles.meta}>
-                <small className="meta">{post.publishDate}</small>
-                <Tags tags={post.tags} />
+                <small className="meta">{post.field_date}</small>
               </div>
             </li>
           )
