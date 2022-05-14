@@ -48,5 +48,14 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `https://mvp-alltech2018.pantheonsite.io/`,
+        disallowedLinkTypes: [
+          'file--file'
+        ],
+      },
+    },
   ],
 };
