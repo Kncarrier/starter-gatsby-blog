@@ -29,16 +29,22 @@ export default RootIndex
 export const pageQuery = graphql`
   query HomeQuery {
     allNodeArticle(
-      limit: 10
-      sort: {fields: field_date, order: ASC}
-      filter: {langcode: {eq: "en"}}
+      filter: {langcode: {eq: "en"}, relationships: {field_article_type: {elemMatch: {name: {eq: "Blog"}}}}}
+      sort: {fields: created, order: DESC}
+      limit: 3
     ) {
       nodes {
-        field_meta_description
-        field_page_title
-        langcode
-        field_date
-        drupal_id
+        title
+        relationships {
+          field_article_type {
+            name
+          }
+        }
+        revision_timestamp
+        body {
+          summary
+        }
+        id
       }
     }
     allContentfulPerson(

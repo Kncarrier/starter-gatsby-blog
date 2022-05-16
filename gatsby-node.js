@@ -9,10 +9,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allContentfulBlogPost {
+        allNodeArticle(
+          filter: {langcode: {eq: "en"}, relationships: {field_article_type: {elemMatch: {name: {eq: "Blog"}}}}}
+          sort: {fields: created, order: DESC}
+        ) {
           nodes {
             title
-            slug
+            relationships {
+              field_article_type {
+                name
+              }
+            }
+            revision_timestamp
+            body {
+              summary
+            }
+            id
           }
         }
       }
@@ -27,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allContentfulBlogPost.nodes
+  const posts = result.data.allNodeArticle.nodes
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
@@ -35,17 +47,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug
-      const nextPostSlug =
-        index === posts.length - 1 ? null : posts[index + 1].slug
+      const previousPostId = index === 0 ? null : posts[index - 1].id
+      const nextPostId =
+        index === posts.length - 1 ? null : posts[index + 1].id
 
       createPage({
-        path: `/blog/${post.slug}/`,
+        path: `/blog/${post.id}/`,
         component: blogPost,
         context: {
-          slug: post.slug,
-          previousPostSlug,
-          nextPostSlug,
+          id: post.id,
+          previousPostId,
+          nextPostId,
         },
       })
     })
