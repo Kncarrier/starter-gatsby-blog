@@ -22,17 +22,12 @@
 
 .navigationItem a {
   border-bottom: 1.5px solid transparent;
-  color: currentColor;
   text-decoration: none;
   font-size: 1.3rem;
 }
 
 .navigationItem a:hover {
   border-bottom-color: var(--primary);
-  color: var(--primary);
-}
-
-.nav-icon {
   color: var(--primary);
 }
 
