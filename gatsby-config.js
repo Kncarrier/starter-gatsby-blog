@@ -44,6 +44,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
+    "gatsby-theme-material-ui",
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,

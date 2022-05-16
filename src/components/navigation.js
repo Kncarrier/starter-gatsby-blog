@@ -15,7 +15,7 @@ const Navigation = () => (
         </Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/" activeClassName="active">
+        <Link to="/animal-nutrition" activeClassName="active">
           <i className="fak fa-flask nav-icon"></i> Animal Nutrition
         </Link>
       </li>
@@ -26,7 +26,7 @@ const Navigation = () => (
       </li>
       <li className={styles.navigationItem}>
         <Link to="/" activeClassName="active">
-          About
+          <i class="fak fa-alltech-a"></i> About
         </Link>
       </li>
       <li className={styles.navigationItem}>

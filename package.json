@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.7.0",
     "gatsby": "^4.0.0",
     "gatsby-plugin-gatsby-cloud": "^4.14.0",
     "gatsby-plugin-image": "^2.0.0",
@@ -16,6 +19,7 @@
     "gatsby-plugin-sharp": "^4.0.0",
     "gatsby-source-contentful": "^7.0.0",
     "gatsby-source-drupal": "^5.15.0",
+    "gatsby-theme-material-ui": "^5.2.0",
     "gatsby-transformer-sharp": "^4.0.0",
     "gh-pages": "^3.1.0",
     "lodash": "^4.17.21",
