@@ -36,8 +36,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Alltech Gatsby Demo",
+    description: "Alltech Gatsby demo project",
   },
   plugins: [
     "gatsby-transformer-sharp",
