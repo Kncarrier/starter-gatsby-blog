@@ -36,17 +36,27 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Alltech Gatsby Demo",
+    description: "Alltech Gatsby demo project",
   },
   plugins: [
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
+    "gatsby-theme-material-ui",
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
+    },
+    {
+      resolve: 'gatsby-source-drupal',
+      options: {
+        baseUrl: `https://mvp-alltech2018.pantheonsite.io/`,
+        disallowedLinkTypes: [
+          'file--file'
+        ],
+      },
     },
   ],
 };

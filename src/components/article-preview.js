@@ -16,17 +16,15 @@ const ArticlePreview = ({ posts }) => {
       <ul className={styles.articleList}>
         {posts.map((post) => {
           return (
-            <li key={post.slug}>
-              <Link to={`/blog/${post.slug}`} className={styles.link}>
-                <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
+            <li key={post.id}>
+              <Link to={`/blog/${post.id}`} className={styles.link}>
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>
-                {post.description?.raw && renderRichText(post.description)}
+                {post.body.summary && post.body.summary}
               </div>
               <div className={styles.meta}>
-                <small className="meta">{post.publishDate}</small>
-                <Tags tags={post.tags} />
+                <small className="meta">{post.field_date}</small>
               </div>
             </li>
           )
